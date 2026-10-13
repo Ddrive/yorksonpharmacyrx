@@ -67,7 +67,7 @@ export default function Home() {
             </p>
 
             <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {heroCards.map(({ title, text, image, }) => (
+              {heroCards.map(({ title, text, image, link}) => (
                 <article
                   key={title}
                   className="flex flex-col overflow-hidden rounded-2xl bg-white text-ink shadow-xl"
@@ -83,7 +83,7 @@ export default function Home() {
                       {text}
                     </p>
                     <a
-                      href="#booking"
+                      href={link} target="_blank"
                       className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-blue px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-navy sm:w-auto sm:self-start"
                     >
                       Book an appointment
