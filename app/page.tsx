@@ -1,69 +1,224 @@
 import Image from "next/image";
+import Navbar from "./components/Navbar";
+// import BookingForm from "./components/BookingForm";
+import {
+  ConsultationIllustration,
+  VaccinationIllustration,
+} from "./components/Illustrations";
+
+const heroCards = [
+  {
+    title: "Vaccinations and health checks",
+    text: "Flu shots, travel vaccines and blood pressure checks, done in a private room.",
+    image: "/vaccination.jpg",
+    link: "https://www.getvaccinated.gov.bc.ca/s/bookavaccine",
+    // Illustration: VaccinationIllustration,
+  },
+  {
+    title: "Talk to a physician online",
+    text: "We partnered with Avee to get you a doctor quickly.",
+    image: "/Avee.jpg",
+    link: "https://booking.avee.health/NRY22",
+    // Illustration: ConsultationIllustration,
+  },
+
+];
+
+const services = [
+  {
+    title: "Prescription refills",
+    text: "By phone (and very soon, online). We text you the moment it's ready to pick up.",
+  },
+  {
+    title: "Medication reviews",
+    text: "Sit down with a pharmacist and go over everything you take, one-on-one.",
+  },
+  {
+    title: "Vaccinations",
+    text: "Flu, shingles and travel vaccines. Walk-ins welcome for flu shots.",
+  },
+  {
+    title: "Pharmacist run clinics",
+    text: "A pharmacist will customize a clinic to your need.",
+  },
+  {
+    title: "Weekly blister packs",
+    text: "Your doses sorted by day and time, so nothing gets missed.",
+  },
+  {
+    title: "Minor ailment advice",
+    text: "Coughs, rashes, aches. Ask us first and skip the waiting room.",
+  },
+];
+
+const hours = [
+  { day: "Monday to Friday", time: "9:00 am – 6:00 pm" },
+  { day: "Saturday", time: "10:00 am – 3:00 pm" },
+  { day: "Sunday", time: "Closed" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <Navbar />
+
+      <main>
+        {/* Home */}
+        <section id="home" className="scroll-mt-16 bg-brand-navy text-white">
+          <div className="mx-auto max-w-6xl px-5 py-16 md:py-6">
+            <h1 className="max-w-6xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              Yorkson Pharmacy: ...SLOGAN HERE...
+            </h1>
+            <p className="mt-2 max-w-xl text-lg leading-relaxed text-white/80">
+              Yorkson Pharmacy is where you get the answers to your health questions. ...CONTENT...
+            </p>
+
+            <div className="mt-6 grid gap-6 md:grid-cols-2">
+              {heroCards.map(({ title, text, image, Illustration }) => (
+                <article
+                  key={title}
+                  className="flex flex-col overflow-hidden rounded-2xl bg-white text-ink shadow-xl"
+                >
+                  <div className="aspect-[5/3] w-full bg-mist">
+                    <Image src={image} width={1000} height={1000} alt=""/>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h2 className="text-2xl font-bold text-brand-navy">
+                      {title}
+                    </h2>
+                    <p className="mt-2 flex-1 leading-relaxed text-ink/75">
+                      {text}
+                    </p>
+                    <a
+                      href="#booking"
+                      className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-blue px-7 py-3 font-semibold text-white transition-colors hover:bg-brand-navy sm:w-auto sm:self-start"
+                    >
+                      Book an appointment
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section id="services" className="scroll-mt-16 bg-white">
+          <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
+            <h2 className="max-w-xl text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
+              Services for you:
+            </h2>
+            <div className="mt-12 grid gap-x-12 md:grid-cols-2">
+              {services.map((s) => (
+                <div
+                  key={s.title}
+                  className="border-t border-brand-blue/25 py-6"
+                >
+                  <h3 className="text-xl font-semibold text-brand-blue">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 max-w-md leading-relaxed text-ink/75">
+                    {s.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* About */}
+        <section id="about" className="scroll-mt-16 bg-mist">
+          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
+            <h2 className="text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
+              Serving every patient in our community.
+            </h2>
+            <div className="space-y-5 text-lg leading-relaxed text-ink/80">
+              <p>
+                We started Yorkson because...
+              </p>
+              <p>
+                We work with your doctor...
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Booking */}
+        {/* <section id="booking" className="scroll-mt-16 bg-brand-sky">
+          <div className="mx-auto grid max-w-6xl items-start gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
+                Book an appointment
+              </h2>
+              <p className="mt-4 max-w-md text-lg leading-relaxed text-brand-navy/85">
+                Tell us what you need and when you're free. We'll call to
+                confirm your time, usually within one business day.
+              </p>
+            </div>
+            <BookingForm />
+          </div>
+        </section> */}
+
+        {/* Contact */}
+        <section id="contact" className="scroll-mt-16 bg-white">
+          <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:py-24">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl">
+                Visit or get in touch
+              </h2>
+              <address className="mt-6 space-y-1 text-lg not-italic text-ink/80">
+                <p>#140 - 20144 86 Avenue</p>
+                <p>Langley, BC V2Y 3W6</p>
+                <p>Fax: (778) 366-3559</p>
+              </address>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="tel:+17783663552"
+                  className="rounded-full bg-brand-blue px-7 py-3 text-center font-semibold text-white transition-colors hover:bg-brand-navy"
+                >
+                  Call (778) 366-3552
+                </a>
+                <a
+                  href="mailto:yorksoninfo@gmail.com"
+                  className="rounded-full border border-brand-blue/40 px-7 py-3 text-center font-semibold text-brand-blue transition-colors hover:bg-mist"
+                >
+                  Send an email
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-brand-navy">
+                Opening hours
+              </h3>
+              <ul className="mt-4">
+                {hours.map((h) => (
+                  <li
+                    key={h.day}
+                    className="flex justify-between gap-4 border-t border-brand-blue/25 py-3"
+                  >
+                    <span>{h.day}</span>
+                    <span className="font-semibold">{h.time}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+
+      <footer className="bg-brand-navy py-10 text-center text-sm text-white/75">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-5">
+          <Image
+            src="/yorkson-logo.png"
+            alt="Yorkson Pharmacy"
+            width={1139}
+            height={300}
+            className="h-10 w-auto"
+          />
+          <p>©2026 Yorkson Pharmacy. All rights reserved.</p>
+        </div>
+      </footer>
+    </>
   );
 }
