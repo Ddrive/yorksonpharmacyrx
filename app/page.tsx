@@ -1,9 +1,5 @@
 import Image from "next/image";
 import Navbar from "./components/Navbar";
-import {
-  ConsultationIllustration,
-  VaccinationIllustration,
-} from "./components/Illustrations";
 
 const heroCards = [
   {
@@ -11,14 +7,12 @@ const heroCards = [
     text: "Flu shots, travel vaccines and blood pressure checks, done in a private room.",
     image: "/vaccination.jpg",
     link: "https://www.getvaccinated.gov.bc.ca/s/bookavaccine",
-    // Illustration: VaccinationIllustration,
   },
   {
     title: "Talk to a physician online",
     text: "We partnered with Avee to get you a doctor quickly.",
     image: "/Avee.jpg",
     link: "https://booking.avee.health/NRY22",
-    // Illustration: ConsultationIllustration,
   },
 
 ];
@@ -73,7 +67,7 @@ export default function Home() {
             </p>
 
             <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {heroCards.map(({ title, text, image, Illustration }) => (
+              {heroCards.map(({ title, text, image, }) => (
                 <article
                   key={title}
                   className="flex flex-col overflow-hidden rounded-2xl bg-white text-ink shadow-xl"
