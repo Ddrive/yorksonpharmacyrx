@@ -97,7 +97,7 @@ export default function Navbar() {
               </a>
             </li>
           ))}
-          <li className="pt-4">
+          {/* <li className="pt-4">
             <a
               href="#booking"
               onClick={() => setOpen(false)}
@@ -105,7 +105,7 @@ export default function Navbar() {
             >
               Book an appointment
             </a>
-          </li>
+          </li> */}
         </ul>
       )}
     </header>
