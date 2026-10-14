@@ -52,7 +52,7 @@ const services = [
   },
 ];
 
-function ContactIcon({ children }) {
+function ContactIcon({ children }: any ) {
   return (
     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-mist text-brand-blue">
       <svg
